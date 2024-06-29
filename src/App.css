@@ -1,0 +1,507 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue: #6CCFF6;
+    --black: #001011;
+    --grey: #757780;
+    --white: #FFFFFC;
+    --green: #98CE00;
+}
+
+.navbar {
+    background-color: var(--blue);
+    position: fixed;
+    width: 100vw;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: var(--white);
+    padding: 1vw;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.navbarSupportedContent ul li a {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 2vw;
+    text-decoration: none;
+}
+
+#diff a{
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+#diff a::before {
+    content: 'Check Balance';
+    padding-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, white 50%, var(--green) 50%);
+    background-size: 200% 100%;
+    transition: background-position 0.3s ease;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+#diff a:hover::before {
+    background-position: -100% 0;
+    z-index: 100000000000;
+}
+
+#diff a:hover{
+    color: var(--white);
+}
+
+.navbarSupportedContent ul li a:hover {
+    background-color: #75778042;
+    border-radius: 5px;
+}
+
+h1 {
+    margin: 4vh 0;
+    text-align: center;
+    -webkit-text-stroke: 3px var(--black);
+    -webkit-text-fill-color: var(--white);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 5vw;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero .text {
+    width: 40vw;
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero .text h1 {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 4vw;
+    padding: 3vw 0;
+    margin: 0;
+    -webkit-text-stroke: 0px var(--black);
+    -webkit-text-fill-color: var(--white);
+}
+
+.hero .text h3 {
+    width: 30vw;
+    font-size: 3vw;
+}
+
+.hero .text p {
+    width: 30vw;
+    font-size: 2vw;
+}
+
+svg {
+    height: 60vh;
+    width: 40vw;
+    padding: 2vw;
+}
+
+.addExpense{
+    padding-top: 10vh;
+}
+
+.inputs {
+    margin: 5vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.addItem input,
+.addAmt input,
+.addAmt span,
+.subBtn {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 0.374rem;
+    padding: .375rem .75rem;
+    border: 1px solid #7577808f;
+}
+
+.addAmt {
+    display: flex;
+    width: auto;
+}
+
+.addAmt input {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    text-align: center;
+}
+
+.addAmt span {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.addCategory select:hover,
+.addCategory select option:hover {
+    cursor: pointer;
+}
+
+.subBtn:disabled {
+    background-color: #75778079;
+    border: none;
+    color: #757780;
+    font-weight: 600;
+}
+
+.subBtn:enabled {
+    background-color: var(--blue);
+    border: none;
+    color: var(--white);
+    font-weight: 600;
+    box-shadow: 2px 2px 5px black;
+}
+
+.expenseList {
+    width: 80vw;
+    margin: auto;
+}
+
+.expenseList h1 {
+    margin-top: 15vh;
+    margin-bottom: 20px;
+}
+
+.expenseList .filter {
+    display: flex;
+    justify-content: center;
+    font-size: 2.75vh;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.expenseList .filter select{
+    width: max-content;
+    text-align: center;
+}
+
+.expenseList .filter select:hover,
+.expenseList .filter select option:hover {
+    cursor: pointer;
+}
+
+#items {
+    width: 100%;
+}
+
+#list{
+    padding-top: 10vh;
+}
+
+.transactionsTable {
+    width: 100%;
+    margin: auto;
+}
+
+.transactionsTable td {
+    width: max-content;
+    font-size: 18px;
+}
+
+.transactionsTable tr:hover {
+    background-color: #75778013;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+}
+
+.transactionsTable .amount {
+    width: 30%;
+    vertical-align: middle;
+    text-align: right;
+    height: 54px;
+    font-weight: 700;
+}
+
+.transactionsTable .income {
+    color: #90c400;
+}
+
+.transactionsTable .expense {
+    color: rgb(212, 0, 0);
+}
+
+.transactionsTable .description {
+    width: 30%;
+}
+
+.transactionsTable .description p {
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.transactionsTable .date {
+    width: 20%;
+}
+
+.transactionsTable .date p {
+    width: fit-content;
+    font-size: 13px;
+}
+
+.transactionsTable .category {
+    width: 20%;
+    vertical-align: middle;
+    font-size: 15.5px;
+}
+
+.icon {
+    scale: 1.05;
+    border: none;
+    padding: 5px;
+    place-items: center;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: all 300ms;
+}
+
+.del {
+    position: relative;
+    top: 0px;
+    left: -23px;
+    background-color: red;
+}
+
+.edit {
+    position: relative;
+    top: 0px;
+    left: -25px;
+    background-color: var(--grey);
+}
+
+.transactionsTable tr:hover .icon {
+    transform: scaleX(-1);
+}
+
+.balance {
+    padding: 30vh 0;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 60vw;
+}
+
+.balance .total {
+    margin-bottom: 10px;
+    flex-basis: 100%;
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+.balance .total div {
+    margin: auto 20%;
+    padding: 5px;
+    border: 2px solid #6ccff68c;
+    color: var(--blue);
+    border-radius: 5px;
+}
+
+.credit,
+.debit {
+    flex-basis: 50%;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.credit div,
+.debit div {
+    margin: auto 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.credit div {
+    background-color: #90c4007e;
+    color: var(--white);
+}
+
+.debit div {
+    background-color: rgba(212, 0, 0, 0.462);
+    color: var(--white);
+}
+
+@media screen and (max-width: 770px) {
+    .inputs {
+        flex-direction: column;
+        gap: 4vh;
+        margin-bottom: -5vh;
+    }
+
+    .inputs .addItem input,
+    .inputs .addCategory select,
+    .inputs .submit button {
+        width: 60vw;
+    }
+
+    .inputs .addAmt input {
+        width: 55.6vw;
+    }
+
+    .expenseList {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .hero {
+        flex-direction: column-reverse;
+        padding-top: 10vw;
+    }
+
+    svg {
+        height: 40vh;
+        width: 60vw;
+    }
+
+    .hero .text {
+        width: 100vw;
+    }
+
+    .hero .text h3 {
+        width: 80vw;
+    }
+
+    .hero .text p {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .balance {
+        flex-direction: column;
+    }
+
+    .balance .total {
+        flex-basis: 50%;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .balance .total div {
+        margin: auto 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .balance .credit {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    svg {
+        height: 230px;
+    }
+
+    .hero .text h1 {
+        font-size: 24px;
+    }
+
+    .hero .text h3 {
+        font-size: 18px;
+    }
+
+    .hero .text p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .inputs {
+        height: 80vh;
+    }
+
+    .expenseList {
+        width: 100%;
+    }
+
+    .transactionsTable td {
+        font-size: 14px;
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scaleY(0);
+    }
+
+    50% {
+        transform: scaleY(1)
+    }
+
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+svg g path {
+    transform-origin: bottom;
+    animation: grow 5s ease infinite;
+    animation-delay: calc(0.2s * var(--index));
+}
+
+svg g path:nth-child(1) {
+    --index: 1;
+}
+
+svg g path:nth-child(2) {
+    --index: 2;
+}
+
+svg g path:nth-child(3) {
+    --index: 3;
+}
+
+svg g path:nth-child(4) {
+    --index: 4;
+}
+
+svg g path:nth-child(5) {
+    --index: 5;
+}
+
+svg g path:nth-child(6),
+svg g path:nth-child(7),
+svg g path:nth-child(8),
+svg g path:nth-child(9),
+svg g path:nth-child(10),
+svg g path:nth-child(11) {
+    --index: 6;
+}
